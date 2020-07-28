@@ -1,0 +1,7 @@
+server:
+  port: 8085
+spring:
+  data:
+    elasticsearch:
+      cluster-nodes: localhost:9300
+      cluster-name: my-application  # 集群名称，和elasticsearch.yml对应
