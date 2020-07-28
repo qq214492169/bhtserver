@@ -6,25 +6,25 @@ springboot集成elsticsearch服务案例
 以上两步具体细节自行百度安装部署
 2、搭建基础的springboot项目，并引入相关依赖
   pom.xml文件主要引入以下两个依赖：
-    <!-- 构建web项目模块 包括了Tomcat和spring-webmvc -->
-    <!-- spring-boot-starter-web 默认依赖了tomcat的starter 所以使得项目可以直接运行而不需要部署到tomcat中-->
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
-    <!--添加elasticsearch相关数据依赖，方便我们连接和操作elasticsearch服务-->
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
-    </dependency>
+<!-- 构建web项目模块 包括了Tomcat和spring-webmvc -->
+<!-- spring-boot-starter-web 默认依赖了tomcat的starter 所以使得项目可以直接运行而不需要部署到tomcat中-->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+<!--添加elasticsearch相关数据依赖，方便我们连接和操作elasticsearch服务-->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+</dependency>
   application.yml配置elasticsearch：
-    server:
-      port: 8085
-    spring:
-      data:
-        elasticsearch:
-          cluster-nodes: localhost:9300
-          cluster-name: my-application  # 集群名称，和elasticsearch.yml对应
+server:
+  port: 8085
+spring:
+  data:
+    elasticsearch:
+      cluster-nodes: localhost:9300
+      cluster-name: my-application  # 集群名称，和elasticsearch.yml对应
 3、创建实体类
 @Document(indexName="bht_index",type="report",shards=5,replicas=1,indexStoreType="fs",refreshInterval="-1")
 public class ReportDetail implements Serializable {
