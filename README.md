@@ -1,5 +1,3 @@
-change froms local11
-change froms remote11
 # bhtserver
 springboot集成elsticsearch服务案例
 
